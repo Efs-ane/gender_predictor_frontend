@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demografix | Gender Predictor</title>
+    <meta
+      name="description"
+      content="Predict likely gender from a person's first name using the Demografix API."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="card">
+        <header class="header">
+          <div class="badge">Demografix</div>
+          <h1>Gender Predictor</h1>
+          <p>
+            Enter a first name to estimate the likely gender, confidence level,
+            and sample size from the Demografix API.
+          </p>
+        </header>
+
+        <form id="predict-form" class="predict-form" novalidate>
+          <label for="name-input" class="sr-only">First name</label>
+          <div class="input-row">
+            <input
+              id="name-input"
+              name="name"
+              type="text"
+              placeholder="Type a first name..."
+              autocomplete="off"
+              maxlength="50"
+            />
+            <button type="submit" id="predict-button">Predict</button>
+          </div>
+        </form>
+
+        <div id="status-message" class="status-message" aria-live="polite"></div>
+
+        <section id="result-card" class="result-card hidden" aria-live="polite">
+          <div class="result-header">
+            <div>
+              <p class="label">Name</p>
+              <h2 id="result-name">-</h2>
+            </div>
+            <div class="confidence-pill" id="confidence-pill">Unknown</div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="label">Predicted gender</span>
+              <strong id="result-gender">-</strong>
+            </div>
+            <div class="stat-box">
+              <span class="label">Probability</span>
+              <strong id="result-probability">-</strong>
+            </div>
+            <div class="stat-box">
+              <span class="label">Sample size</span>
+              <strong id="result-sample-size">-</strong>
+            </div>
+            <div class="stat-box">
+              <span class="label">Confidence</span>
+              <strong id="result-confidence">-</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
